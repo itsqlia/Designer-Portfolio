@@ -1,9 +1,21 @@
 * {
-	box-sizing: border-box;
+	margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: melody;
 }
 
 body {
-	background-color: #fff;
+	background-color: whitesmoke;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    width: 100%;
+    position: relative;
 }
 
 /* adding fonts */
@@ -22,12 +34,20 @@ body {
 }
 
 /* Navbar */
-nav {
+#navbar {
+    height: 55px;
+    width:100%;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 5%;
-    padding-right: 5%;   
+    padding: 1.2vw 6vw;
+    background:whitesmoke;
+    z-index: 1000;
+}
+
+#navbar.hidden{
+    top:-55px;
 }
 
 .logo {
@@ -36,17 +56,65 @@ nav {
     color: black;
 }
 
-nav ul li {
-    list-style-type: none;
-    display:inline-block;
-    padding: 10px 20px;
+.menu-items{
+    display: flex;
+    margin-right: 15% ;
 }
 
-nav ul li a {
+.menu-items li {
+    list-style: none;
+    margin: 0 1.5vw;
+}
+
+.menu-items li a {
+    display: block;
     color: black;
-    text-decoration: none;
-    font-weight: bold;
     font-family: melody;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.menu-items li:hover a {
+    color: #FC7D58;
+}
+
+/* .container {
+    color: whitesmoke;
+    width: 100%;
+    height: 100%; 
+}
+
+.text-container{
+   margin-left: 70px;
+   top: 50%;
+   position: absolute;
+   letter-spacing: 5px;
+}
+
+.text-container h2 {
+    font-family: femme fatale;
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 10vw;
+    padding-right: 5rem;
+}
+
+.text-container h4{
+    color:black;
+    font-size: 15px;
+}*/
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 50%;
+}
+
+.imgbox {
+    width: 100vw;
+    height: 100vh;
 }
 
 /* Slideshow Heropage */
@@ -85,6 +153,50 @@ nav ul li a {
     color: whitesmoke;
 }
 
+.btn {
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    height: 60px;
+    background-color: whitesmoke; 
+    color: black;
+   
+    /* color: whitesmoke; */
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    line-height: 60px;
+    z-index: 9;
+    transition: all ease 0.5s;
+}
+
+/* .btn:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    opacity: .9;
+    z-index: -1;
+    transition: all ease 0.5s;
+} */
+
+.btn:hover{
+    color: rgb(0, 0, 0);
+}
+
+/* .prev .next {
+    position: relative;
+    display: inline-block;
+    height: 5rem;
+    width: 5rem;
+    border: 0;
+    cursor: pointer;
+    background: transparent;
+} */
+
 @keyframes slide {
     0%{
         background-image: url(_assets/CarteBlanche.jpg);
@@ -109,4 +221,10 @@ nav ul li a {
     }
 }
 
-/* Slider Style */
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar .menu-items {
+        display: none;
+    }
+}
