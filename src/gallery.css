@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: melody;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* adding fonts */
+@font-face {
+  font-family: "femme fatale";
+  src: url(fonts/webfontkit-femme-fatale/sk_femme_fatale_trial-webfont.woff);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "melody";
+  src: url(fonts/webfontkit-melody/blmelody-regular-webfont.woff);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "melody light";
+  src: url(fonts/webfontkit-melody/blmelody-light-webfont.woff);
+  font-style: light;
+  font-weight: 100;
+}
+
+/* Navbar */
+#navbar {
+  height: 55px;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2vw 6vw;
+  background: whitesmoke;
+  z-index: 1000;
+  animation: fadeIn 1s;
+  animation-fill-mode: forwards;
+  top: 0;
+}
+
+#navbar.hidden {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+
+#navbar a {
+  text-decoration: none;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.logo {
+  font-size: 20px;
+  font-family: femme fatale;
+  color: black;
+}
+
+.menu-items {
+  display: flex;
+  margin-right: 15%;
+}
+
+.menu-items li {
+  list-style: none;
+  margin: 0 1.5vw;
+}
+
+.menu-items li a {
+  display: block;
+  color: black;
+  font-family: melody;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.menu-items li:hover a {
+  color: #fc7d58;
+}
+
+.gallery {
+  margin-top: 55px;
+  column-count: 4;
+  column-gap: 10px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  margin-bottom: 10px;
+  break-inside: avoid;
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 0 solid rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  z-index: 10;
+  border-width: 0.5rem;
+}
+
+.card:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: all 0.2s;
+  z-index: 10;
+  border-width: 0.5rem;
+  margin: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  -webkit-clip-path: polygon(
+    0 calc(100% - 1rem),
+    0 100%,
+    1rem 100%,
+    1rem 0,
+    0 0,
+    0 1rem,
+    100% 1rem,
+    100% 0,
+    calc(100% - 1rem) 0,
+    calc(100% - 1rem) 100%,
+    100% 100%,
+    100% calc(100% - 1rem)
+  );
+  clip-path: polygon(
+    0 calc(100% - 1rem),
+    0 100%,
+    1rem 100%,
+    1rem 0,
+    0 0,
+    0 1rem,
+    100% 1rem,
+    100% 0,
+    calc(100% - 1rem) 0,
+    calc(100% - 1rem) 100%,
+    100% 100%,
+    100% calc(100% - 1rem)
+  );
+}
+
+.card:hover:after {
+  transform: scale(0.9);
+  border-color: white;
+}
+
+.card:hover .card__image {
+  transform: scale(1.1);
+}
+
+.card .card__image {
+  display: block;
+  max-width: 100%;
+  transition: 0.3s ease;
+  grid-row: 1 / -1;
+  grid-column: 1;
+}
+
+.card .card__caption {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  z-index: 20;
+  top: 80%;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: all 0.2s ease-in;
+}
+
+.card:hover .card__caption {
+  transform: translateY(-50%) translateX(-50%);
+  opacity: 1;
+  display: block;
+}

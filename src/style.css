@@ -1,0 +1,722 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: melody;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* adding fonts */
+@font-face {
+  font-family: "femme fatale";
+  src: url(fonts/webfontkit-femme-fatale/sk_femme_fatale_trial-webfont.woff);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "melody";
+  src: url(fonts/webfontkit-melody/blmelody-regular-webfont.woff);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "melody light";
+  src: url(fonts/webfontkit-melody/blmelody-light-webfont.woff);
+  font-style: light;
+  font-weight: 100;
+}
+
+/* Navbar */
+#navbar {
+  height: 55px;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2vw 6vw;
+  background: whitesmoke;
+  z-index: 1000;
+  animation: fadeIn 1s;
+  animation-fill-mode: forwards;
+  top: 0;
+}
+
+#navbar.hidden {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.logo {
+  font-size: 20px;
+  font-family: femme fatale;
+  color: black;
+}
+
+.menu-items {
+  display: flex;
+  margin-right: 15%;
+}
+
+.menu-items li {
+  list-style: none;
+  margin: 0 1.5vw;
+}
+
+.menu-items li a {
+  display: block;
+  color: black;
+  font-family: melody;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.menu-items li:hover a {
+  color: #fc7d58;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 50%;
+}
+
+.imgbox {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Slideshow Heropage */
+.hero-slider {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  animation: slide 30s infinite;
+}
+
+.hero-content {
+  color: whitesmoke;
+  width: 100%;
+  height: 100%;
+}
+
+.carteBlanche {
+  margin-left: 70px;
+  top: 50%;
+  position: absolute;
+  letter-spacing: 5px;
+}
+
+.carteBlanche h1 {
+  font-family: femme fatale;
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #f4efe9;
+}
+
+.carteBlanche p {
+  font-family: melody;
+  font-size: 25px;
+  color: whitesmoke;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  height: 60px;
+  background-color: whitesmoke;
+  color: black;
+
+  /* color: whitesmoke; */
+  font-size: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  line-height: 60px;
+  z-index: 9;
+  transition: all ease 0.5s;
+}
+
+.btn:hover {
+  color: rgb(0, 0, 0);
+}
+
+@keyframes slide {
+  0% {
+    background-image: url(/CarteBlanche.jpg);
+  }
+
+  40% {
+    background-image: url(/CB1.jpg);
+  }
+
+  40.01% {
+    background-image: url(/CB1.jpg);
+  }
+
+  60% {
+    background-image: url(/CB2.jpg);
+  }
+
+  60.1% {
+    background-image: url(/CB2.jpg);
+  }
+
+  80% {
+    background-image: url(/CB3.jpg);
+  }
+
+  100% {
+    background-image: url(/CB3.jpg);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: -moz-calc(4px + 0.45vw);
+  font-size: -webkit-calc(4px + 0.45vw);
+  font-size: calc(4px + 0.45vw);
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Slider Collection--------------------------------------*/
+.collection-section {
+  padding: 0 70px 0 70px;
+}
+
+.collection-slider {
+  position: relative;
+  width: 100%;
+  height: 50rem;
+  overflow: hidden;
+  margin-bottom: 8rem;
+}
+
+.collection-slider li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  transition: visibility 0s 1s;
+  will-change: visibility;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  clip: rect(0, 80rem, 50rem, 80rem);
+  transition: clip 0.5s cubic-bezier(0.99, 0.01, 0.45, 0.9) 0.5s;
+  will-change: clip;
+}
+
+.coll-slider-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0 0 2rem;
+  font-size: 9rem;
+  text-align: right;
+}
+
+.coll-slider-content h2 {
+  font-family: femme fatale;
+  color: black;
+  font-size: 75px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transform: translateY(-30%);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+  will-change: transform, opacity;
+}
+
+.coll-slider-content a {
+  display: inline-block;
+  font-size: 2rem;
+  padding: 1.5rem;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 0.5s 0.1s, opacity 0.5s 0.1s;
+  will-change: transform, opacity;
+}
+
+/* Current Slide 
+-------------------------------------*/
+li.current {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+li.current .image {
+  clip: rect(0, 80rem, 50rem, 0);
+}
+
+li.current .coll-slider-content h2 {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+li.current .coll-slider-content a {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 1.1s;
+}
+
+/* Prev Slide 
+------------------------------------*/
+li.prev_slide .image {
+  clip: rect(0, 0, 50rem, 0);
+}
+
+nav {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.prev,
+.next,
+.counter {
+  vertical-align: middle;
+}
+
+.prev,
+.next {
+  position: relative;
+  display: inline-block;
+  height: 5rem;
+  width: 5rem;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+.prev::before,
+.next::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border: 0.8rem solid transparent;
+  border-right-width: 1rem;
+  border-right-color: #000;
+  border-left-width: 0;
+  width: 0;
+  height: 0;
+}
+
+.prev::after,
+.next::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateZ(0);
+  left: 0.5rem;
+  background: #000;
+  height: 0.1rem;
+  min-height: 1px;
+  width: 2.5rem;
+  transition: width 0.3s;
+}
+
+.next::before {
+  right: 0;
+  left: auto;
+  border-left-width: 1rem;
+  border-left-color: #000;
+  border-right-width: 0;
+}
+
+.next::after {
+  right: 0.5rem;
+  left: auto;
+}
+
+.counter {
+  display: inline-block;
+  font-size: 4rem;
+  font-family: serif;
+  font-style: italic;
+}
+
+.counter span:last-child::before {
+  content: "/";
+  margin: 0 1rem;
+}
+
+.prev:hover::after,
+.next:hover::after {
+  width: 3.5rem;
+}
+
+@media screen and (max-width: 1700px) {
+  .coll-slider-content h2 {
+    font-size: 52px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .coll-slider-content h2 {
+    font-size: 48px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .coll-slider-content h2 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .coll-slider-content h2 {
+    font-size: 34px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .coll-slider-content h2 {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .coll-slider-content h2 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .coll-slider-content h2 {
+    font-size: 18px;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .coll-slider-content {
+    padding-right: 2rem;
+  }
+
+  nav {
+    left: 0;
+    right: auto;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .navbar .menu-items {
+    display: none;
+  }
+}
+
+/* Biography */
+
+.biography-section {
+  display: flex;
+}
+
+.biography-content h2 {
+  font-size: 6rem;
+  margin-bottom: 20px;
+  font-family: femme fatale;
+}
+
+.biography-content p {
+  font-size: 2.2rem;
+  text-align: justify;
+  font-family: melody light;
+}
+
+.biography-section img {
+  width: auto;
+  min-width: 25%;
+  height: auto;
+  max-height: 100%;
+  margin-left: 100px;
+  object-fit: contain;
+}
+
+.section-dark {
+  padding: 125px 70px 125px 70px;
+  background: rgba(200, 200, 200, 0.7);
+}
+
+.section-light {
+  padding: 125px 70px 125px 70px;
+  background-color: whitesmoke;
+}
+
+.gallery-section {
+  background: #ccc;
+  background: url("https://kvia.b-cdn.net/2021/09/hypatia-h_1e5774b465d635bea766b9070b71b61c-h_7306ba88a913a267bbb12b59cf59e559-300-scaled.jpg")
+    no-repeat center center;
+  background-size: cover;
+  box-shadow: inset 0 0 100vw 100vw rgba(0, 0, 0, 0.3),
+    0 16px 8px -8px rgba(0, 0, 0, 0.4);
+  max-width: 100%;
+  height: 70vh;
+  display: flex;
+  padding: 150px 70px 100px 70px;
+}
+
+/*CARD*/
+.card__btn {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  font-family: sans-serif;
+  font-size: 6px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 88px;
+  margin: 8px 0 0;
+  opacity: 0.5;
+  padding: 8px;
+}
+.card__text-sm {
+  color: #fff;
+  font-family: melody light;
+  font-size: 10px;
+  margin: 0;
+  padding: 16px 0 8px;
+  position: relative;
+}
+.card__text-sm::before {
+  content: "";
+  background: #fff;
+  height: 1px;
+  width: 16px;
+  position: absolute;
+  top: 0;
+}
+.card__text-lg {
+  color: #fff;
+  font-family: femme fatale;
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.2;
+  width: 100%;
+  margin: 0;
+}
+/*...large...*/
+.card-lg__container {
+  padding: 0 16px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-lg__container .card__text-lg {
+  font-family: femme fatale;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 1.4px;
+}
+.card-lg__container .card__text-md {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 10px;
+  font-weight: 100;
+  line-height: 1.5;
+  padding: 0 32px 0 0;
+  opacity: 0.5;
+}
+.card-lg__container .card__text-sm {
+  font-size: 14px;
+}
+.card-lg__container .card__text-sm::before {
+  width: 24px;
+  height: 2px;
+}
+
+/*...small...*/
+.card-sm__container {
+  height: 232px;
+  display: flex;
+  align-self: flex-end;
+
+  gap: 2rem;
+  justify-content: center;
+  padding-left: 5rem;
+}
+.card-sm {
+  box-shadow: inset 0 0 100vw 100vw rgba(0, 0, 0, 0.3),
+    0 16px 8px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.card__background-image {
+  padding: 24px 16px;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  background-size: cover;
+  background-position: top;
+  transition: 0.3s ease;
+}
+
+.card-sm:hover {
+  transform: scale(1.05);
+}
+
+.card-sm:hover .card__background-image {
+  transform: scale(1.1);
+}
+
+.card-sm .card__text {
+  position: absolute;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.card-sm .card__text-sm {
+  opacity: 0.8;
+}
+
+.card-sm .card__link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.card-sm .card__caption {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  top: 80%;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transition: all 0.2s ease-in;
+}
+
+.card-sm:hover .card__caption {
+  transform: translateY(-50%) translateX(-50%);
+  opacity: 1;
+  display: block;
+}
+
+.gallery-section {
+  -ms-overflow-style: none;
+}
+
+@media screen and (max-width: 960px) {
+  .gallery-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: unset;
+    transform: scale(1);
+  }
+
+  section.card-lg__container {
+    margin: 32px 0 0;
+    padding: 0 0 32px;
+  }
+
+  section.card-sm__container {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 695px) {
+  section.card-sm__container {
+    height: unset;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.card-sm .card__background-image {
+    width: calc(100% - 32px);
+    height: 200px;
+    margin: 0 0 16px;
+  }
+
+  .card-sm .card__background-image:hover {
+    margin: 8px 0;
+    transform: scale(0.9);
+  }
+}
